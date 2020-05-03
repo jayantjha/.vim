@@ -1,65 +1,130 @@
 set modeline
 set modelines=1
+set belloff=all
 
-" vundle {{{
+" relative line nos.
+" set number relativenumber
 
-set nocompatible
-filetype off
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'scrooloose/nerdtree'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'itchyny/lightline.vim'
-Plugin 'lifepillar/vim-mucomplete'
-call vundle#end()
-
-" }}} 
-
-syntax enable
-colorscheme molokai
-
-" tabs
-set tabstop=4
-set softtabstop=4
-set expandtab
-
-set number
-set cursorline
-
-" enable filetype specific indent files
-" ~/.vim/indent/*.vim
+" Enable filetype plugins
+filetype plugin on
 filetype indent on
-set omnifunc=syntaxcomplete#Complete
-set shortmess+=c
-set belloff+=ctrlg
-set completeopt+=menuone,noselect
-let g:mucomplete#enable_auto_at_startup=1
 
 " visual autocomplete
 set path+=**
 set wildmenu
 
-" highlight matching [{()}]
-set showmatch
+" Set to auto read when a file is changed from the outside
+set autoread
+au FocusGained,BufEnter * checktime
 
-" searching
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+" Ignore case when searching
+set smartcase
+set ignorecase
 set incsearch
 set hlsearch
 
-" code folding
-set foldenable
-set foldlevelstart=10
-set foldnestmax=10
-nnoremap <space> za
-set foldmethod=indent
+set magic
 
-" nerdtree
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeQuitOnOpen=0
+" Set extra options when running in GUI mode
+if has("gui_running")
+	set guioptions-=m  "remove menu bar
+	set guioptions-=T  "remove toolbar
+	set guioptions-=r  "remove right-hand scroll bar
+	set guioptions-=L  "remove left-hand scroll bar
+endif
+
+set encoding=utf8
+
+" Turn backup off
+set nobackup
+set nowb
+set noswapfile
 
 " status bar related
 set noshowmode
 set laststatus=2
 
-" vim: foldmethod=marker foldlevel=0
+" moving around windows
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+nnoremap <C-H> <C-W>h
+
+" resize windows
+
+nnoremap <S-J> <C-W>+
+nnoremap <S-K> <C-W>-
+nnoremap <S-L> <C-W>>
+nnoremap <S-H> <C-W><
+
+" move around tabs
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+
+" highlight matching [{()}]
+set showmatch
+set mat=2
+
+" tabs
+set expandtab
+set smarttab
+set shiftwidth=4
+set tabstop=4
+
+" Linebreak on 500 characters
+set lbr
+set tw=500
+
+" indentation
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
+
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+if has("win16") || has("win32")
+    set wildignore+=.git\*,.hg\*,.svn\*
+else
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+endif
+
+set number
+" set cursorline
+
+set nocompatible
+filetype off
+syntax on
+
+set rtp+=~/vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'flazz/vim-colorschemes'
+"Plugin 'itchyny/lightline.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'amiorin/vim-project'
+Plugin 'szw/vim-maximizer'
+Plugin 'vimwiki/vimwiki'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'pangloss/vim-javascript'
+Plugin 'prettier/vim-prettier'
+Plugin 'jiangmiao/auto-pairs'
+
+call vundle#end()
+
+" looks
+try
+    colorscheme gruvbox
+catch
+endtry
+
+" nerdtree
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeQuitOnOpen=0
+autocmd VimEnter * NERDTree
+autocmd BufWinEnter * NERDTreeMirror
