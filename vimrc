@@ -9,6 +9,23 @@ set belloff=all
 filetype plugin on
 filetype indent on
 
+" Omnifunc
+set omnifunc=syntaxcomplete#Complete
+set completeopt-=preview
+set completeopt+=menu,menuone,noinsert,noselect
+set shortmess+=c
+augroup OmniCompletionSetup
+    autocmd!
+    autocmd FileType c          set omnifunc=ccomplete#Complete
+    autocmd FileType php        set omnifunc=phpcomplete#CompletePHP
+    autocmd FileType python     set omnifunc=jedi#completions
+    autocmd FileType ruby       set omnifunc=rubycomplete#Complete
+    autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
+    autocmd FileType xml        set omnifunc=xmlcomplete#CompleteTags
+augroup END
+
 " visual autocomplete
 set path+=**
 set wildmenu
@@ -114,6 +131,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdcommenter'
+Plug 'lifepillar/vim-mucomplete'
 
 call plug#end()
 
@@ -126,6 +144,9 @@ endtry
 " nerdtree
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=0
+let g:NERDTreeIgnore = ['^node_modules$']
 autocmd VimEnter * NERDTree
 autocmd BufWinEnter * NERDTreeMirror
 
+" vim-mucomplete
+let g:mucomplete#enable_auto_at_startup = 1
