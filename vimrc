@@ -99,22 +99,23 @@ set nocompatible
 filetype off
 syntax on
 
-set rtp+=~/vim/bundle/Vundle.vim
-call vundle#begin()
+source ~/.vim/plug.vim
+call plug#begin('~/.vim/plugged')
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'vim-airline/vim-airline'
-Plugin 'amiorin/vim-project'
-Plugin 'szw/vim-maximizer'
-Plugin 'vimwiki/vimwiki'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'pangloss/vim-javascript'
-Plugin 'prettier/vim-prettier'
-Plugin 'jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdtree'
+Plug 'flazz/vim-colorschemes'
+Plug 'vim-airline/vim-airline'
+Plug 'amiorin/vim-project'
+Plug 'szw/vim-maximizer'
+Plug 'vimwiki/vimwiki'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'pangloss/vim-javascript'
+Plug 'prettier/vim-prettier'
+Plug 'jiangmiao/auto-pairs'
+Plug 'preservim/nerdcommenter'
 
-call vundle#end()
+call plug#end()
 
 " looks
 try
@@ -127,3 +128,4 @@ map <C-n> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=0
 autocmd VimEnter * NERDTree
 autocmd BufWinEnter * NERDTreeMirror
+
