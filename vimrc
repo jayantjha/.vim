@@ -104,7 +104,6 @@ call vundle#begin()
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'flazz/vim-colorschemes'
-"Plugin 'itchyny/lightline.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'amiorin/vim-project'
 Plugin 'szw/vim-maximizer'
