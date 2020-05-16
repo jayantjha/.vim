@@ -9,6 +9,12 @@ set belloff=all
 filetype plugin on
 filetype indent on
 
+let mapleader = ";"
+set timeoutlen=3000
+
+" often used remappings
+
+
 " Omnifunc
 set omnifunc=syntaxcomplete#Complete
 set completeopt-=preview
@@ -43,6 +49,7 @@ set smartcase
 set ignorecase
 set incsearch
 set hlsearch
+nnoremap <Leader>es :noh<CR>
 
 set magic
 
@@ -70,17 +77,21 @@ nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 nnoremap <C-H> <C-W>h
+nnoremap <F5> :buffers<CR>:buffer<Space>
+nnoremap <Leader>b :b<Space>
+nnoremap <Leader>vb :vertical<Space>sb<Space>
+nnoremap <Leader>sb :sb<Space>
 
 " resize windows
 
-nnoremap <S-J> <C-W>+
-nnoremap <S-K> <C-W>-
-nnoremap <S-L> <C-W>>
-nnoremap <S-H> <C-W><
+nnoremap <C-.> <C-W>+
+nnoremap <C-,> <C-W>-
+nnoremap <C->> <C-W>>
+nnoremap <C-<> <C-W><
 
 " move around tabs
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
+nnoremap <C-Right> :tabprevious<CR>
+nnoremap <C-Left> :tabnext<CR>
 
 " highlight matching [{()}]
 set showmatch
@@ -122,6 +133,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'flazz/vim-colorschemes'
 Plug 'vim-airline/vim-airline'
+Plug 'mattn/emmet-vim'
+Plug 'dense-analysis/ale'
 Plug 'amiorin/vim-project'
 Plug 'szw/vim-maximizer'
 Plug 'vimwiki/vimwiki'
@@ -131,6 +144,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdcommenter'
+Plug 'majutsushi/tagbar'
 Plug 'lifepillar/vim-mucomplete'
 
 call plug#end()
