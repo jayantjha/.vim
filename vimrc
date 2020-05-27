@@ -9,10 +9,12 @@ set belloff=all
 filetype plugin on
 filetype indent on
 
+
 let mapleader = ";"
 set timeoutlen=3000
 
 " often used remappings
+inoremap <C-Space> <ESC>:
 
 
 " Omnifunc
@@ -110,7 +112,7 @@ set tw=500
 " indentation
 set ai "Auto indent
 set si "Smart indent
-set wrap "Wrap lines
+set nowrap "Wrap lines
 
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
@@ -157,10 +159,10 @@ endtry
 
 " nerdtree
 map <C-n> :NERDTreeToggle<CR>
-let NERDTreeQuitOnOpen=0
+let NERDTreeQuitOnOpen=1 "0 would mean don't close
 let g:NERDTreeIgnore = ['^node_modules$']
-autocmd VimEnter * NERDTree
-autocmd BufWinEnter * NERDTreeMirror
+"autocmd VimEnter * NERDTree "autoopen on vim start
+"autocmd BufWinEnter * NERDTreeMirror "auto mirror on any tab
 
 " vim-mucomplete
 let g:mucomplete#enable_auto_at_startup = 1
