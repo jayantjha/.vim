@@ -148,6 +148,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdcommenter'
 Plug 'majutsushi/tagbar'
 Plug 'lifepillar/vim-mucomplete'
+Plug '907th/vim-auto-save'
 
 call plug#end()
 
@@ -168,3 +169,20 @@ let g:NERDTreeIgnore = ['^node_modules$']
 
 " vim-mucomplete
 let g:mucomplete#enable_auto_at_startup = 1
+
+" vimwiki
+let wiki_1 = {}
+let wiki_1.path = '~/vimwiki/'
+let wiki_1.syntax = 'markdown'
+let wiki_1.ext = '.md'
+let g:vimwiki_list = [wiki_1]
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+
+" vim-auto-save
+let g:auto_save = 0
+augroup ft_markdown
+    au!
+    au FileType markdown let b:auto_save = 1
+augroup END
+
+
