@@ -3,7 +3,7 @@ set modelines=1
 set belloff=all
 
 " relative line nos.
-" set number relativenumber
+set number relativenumber
 
 " Enable filetype plugins
 filetype plugin on
@@ -123,7 +123,7 @@ else
 endif
 
 set number
-" set cursorline
+set cursorline
 
 set nocompatible
 filetype off
@@ -152,8 +152,10 @@ Plug 'lifepillar/vim-mucomplete'
 call plug#end()
 
 " looks
+" give better look when both themes are applied
 try
-    colorscheme gruvbox
+    colorscheme Monokai
+    colorscheme molokai_dark
 catch
 endtry
 
