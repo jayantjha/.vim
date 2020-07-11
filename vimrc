@@ -1,7 +1,8 @@
 set modeline
 set modelines=1
 set belloff=all
-
+set pastetoggle=<F2>
+set clipboard=unnamedplus
 " relative line nos.
 set number relativenumber
 
@@ -9,13 +10,8 @@ set number relativenumber
 filetype plugin on
 filetype indent on
 
-
 let mapleader = ";"
 set timeoutlen=3000
-
-" often used remappings
-inoremap <C-Space> <ESC>:
-
 
 " Omnifunc
 set omnifunc=syntaxcomplete#Complete
@@ -51,7 +47,7 @@ set smartcase
 set ignorecase
 set incsearch
 set hlsearch
-nnoremap <Leader>es :noh<CR>
+nnoremap <Leader>/ :nohlsearch<CR>
 
 set magic
 
