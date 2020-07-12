@@ -2,16 +2,42 @@ set modeline
 set modelines=1
 set belloff=all
 set pastetoggle=<F2>
-set clipboard=unnamedplus
-" relative line nos.
 set number relativenumber
+
+let mapleader = ";"
+set timeoutlen=3000
+
+set clipboard=unnamedplus
+" Map copy delete and paste to system clipboard
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+" Cycle buffers
+nnoremap <Leader><Tab> :bn<CR>
+nnoremap <Leader><S-Tab> :bp<CR>
+
+" Delete current buffer
+nnoremap <Leader>q :b#<bar>bd#<CR>
+
+" Set up scrolling winding one line up and down  
+" nnoremap <S-Up> <C-E>
+" nnoremap <S-Down> <C-Y> 
+
+" Automatically go to the end of pasted text 
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
+
+" Always use vertical diffs 
+set diffopt+=vertical
 
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
-
-let mapleader = ";"
-set timeoutlen=3000
 
 " Omnifunc
 set omnifunc=syntaxcomplete#Complete
@@ -145,6 +171,8 @@ Plug 'preservim/nerdcommenter'
 Plug 'majutsushi/tagbar'
 Plug 'lifepillar/vim-mucomplete'
 Plug '907th/vim-auto-save'
+Plug 'junegunn/vim-easy-align'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
