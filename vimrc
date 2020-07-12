@@ -209,4 +209,5 @@ augroup ft_markdown
     au FileType markdown let b:auto_save = 1
 augroup END
 
-
+" coc-extensions
+let g:coc_global_extensions = ['coc-clangd', 'coc-cmake', 'coc-css', 'coc-emmet', 'coc-html', 'coc-json', 'coc-omnisharp', 'coc-python', 'coc-sql', 'coc-tsserver', 'coc-xml']
