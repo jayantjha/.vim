@@ -135,7 +135,7 @@ set tw=500
 " indentation
 set ai "Auto indent
 set si "Smart indent
-set nowrap "Wrap lines
+set wrap "Wrap lines
 
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
@@ -192,9 +192,6 @@ let g:NERDTreeIgnore = ['^node_modules$']
 "autocmd VimEnter * NERDTree "autoopen on vim start
 "autocmd BufWinEnter * NERDTreeMirror "auto mirror on any tab
 
-" vim-mucomplete
-let g:mucomplete#enable_auto_at_startup = 1
-
 " vimwiki
 let wiki_1 = {}
 let wiki_1.path = '~/vimwiki/'
@@ -202,6 +199,14 @@ let wiki_1.syntax = 'markdown'
 let wiki_1.ext = '.md'
 let g:vimwiki_list = [wiki_1]
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+command! Diary VimwikiDiaryIndex
+augroup vimwikigroup
+    autocmd!
+    " automatically update links on read diary
+    autocmd BufRead,BufNewFile,BufEnter diary.md VimwikiDiaryGenerateLinks
+    autocmd BufNewFile */vimwiki/diary/*.md :r !echo \# %:t:r
+    autocmd BufNewFile */vimwiki/diary/*.md :norm kddo
+augroup end
 
 " vim-auto-save
 let g:auto_save = 0
@@ -212,3 +217,8 @@ augroup END
 
 " coc-extensions
 let g:coc_global_extensions = ['coc-clangd', 'coc-cmake', 'coc-css', 'coc-emmet', 'coc-html', 'coc-json', 'coc-omnisharp', 'coc-python', 'coc-sql', 'coc-tsserver', 'coc-xml']
+
+
+" vim-mucomplete
+let g:mucomplete#enable_auto_at_startup = 1
+
