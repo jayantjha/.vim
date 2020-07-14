@@ -5,7 +5,8 @@ set pastetoggle=<F2>
 set number relativenumber
 
 let mapleader = ";"
-set timeoutlen=3000
+" Set leader timout
+set timeoutlen=2000
 
 set clipboard=unnamedplus
 " Map copy delete and paste to system clipboard
@@ -19,6 +20,11 @@ vmap <Leader>P "+P
 " Cycle buffers
 nnoremap <Leader><Tab> :bn<CR>
 nnoremap <Leader><S-Tab> :bp<CR>
+
+" Select buffer
+nnoremap <Leader>b :buffers<CR>:b<Space>
+nnoremap <Leader>vb :buffers<CR>:vertical<Space>sb<Space>
+nnoremap <Leader>sb :buffers<CR>:sb<Space>
 
 " Delete current buffer
 nnoremap <Leader>q :b#<bar>bd#<CR>
@@ -101,13 +107,8 @@ nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 nnoremap <C-H> <C-W>h
-nnoremap <F5> :buffers<CR>:buffer<Space>
-nnoremap <Leader>b :b<Space>
-nnoremap <Leader>vb :vertical<Space>sb<Space>
-nnoremap <Leader>sb :sb<Space>
 
 " resize windows
-
 nnoremap <C-.> <C-W>+
 nnoremap <C-,> <C-W>-
 nnoremap <C->> <C-W>>
