@@ -4,6 +4,10 @@ set belloff=all
 set pastetoggle=<F2>
 set number relativenumber
 
+" Fix new split position
+set splitbelow
+set splitright
+
 let mapleader = ";"
 " Set leader timout
 set timeoutlen=2000
