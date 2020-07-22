@@ -191,10 +191,11 @@ endtry
 
 " nerdtree
 map <C-n> :NERDTreeToggle<CR>
-let NERDTreeQuitOnOpen=1 "0 would mean don't close
+map <Leader>n :NERDTreeFocus<CR>
+let NERDTreeQuitOnOpen=0 "1 would mean close
 let g:NERDTreeIgnore = ['^node_modules$']
-"autocmd VimEnter * NERDTree "autoopen on vim start
-"autocmd BufWinEnter * NERDTreeMirror "auto mirror on any tab
+autocmd VimEnter * NERDTree "autoopen on vim start
+autocmd BufWinEnter * NERDTreeMirror "auto mirror on any tab
 
 " vimwiki
 let wiki_1 = {}
