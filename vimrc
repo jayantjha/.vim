@@ -139,7 +139,8 @@ set tw=500
 " indentation
 set ai "Auto indent
 set si "Smart indent
-set wrap "Wrap lines
+set nowrap "Don't wrap lines
+"set wrap "Wrap lines
 
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
@@ -175,6 +176,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdcommenter'
 Plug 'majutsushi/tagbar'
 Plug 'lifepillar/vim-mucomplete'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug '907th/vim-auto-save'
 Plug 'junegunn/vim-easy-align'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -194,7 +196,7 @@ map <C-n> :NERDTreeToggle<CR>
 map <Leader>n :NERDTreeFocus<CR>
 let NERDTreeQuitOnOpen=0 "1 would mean close
 let g:NERDTreeIgnore = ['^node_modules$']
-autocmd VimEnter * NERDTree "autoopen on vim start
+autocmd VimEnter * NERDTree | wincmd w "autoopen on vim start
 autocmd BufWinEnter * NERDTreeMirror "auto mirror on any tab
 
 " vimwiki
@@ -226,4 +228,10 @@ let g:coc_global_extensions = ['coc-clangd', 'coc-cmake', 'coc-css', 'coc-emmet'
 
 " vim-mucomplete
 let g:mucomplete#enable_auto_at_startup = 1
+
+" ctrlP
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|.git'
+
+
+
 
