@@ -119,8 +119,8 @@ nnoremap <C->> <C-W>>
 nnoremap <C-<> <C-W><
 
 " move around tabs
-nnoremap <C-Right> :tabprevious<CR>
-nnoremap <C-Left> :tabnext<CR>
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
 
 " highlight matching [{()}]
 set showmatch
@@ -196,7 +196,7 @@ map <C-n> :NERDTreeToggle<CR>
 map <Leader>n :NERDTreeFocus<CR>
 let NERDTreeQuitOnOpen=0 "1 would mean close
 let g:NERDTreeIgnore = ['^node_modules$']
-autocmd VimEnter * NERDTree | wincmd w "autoopen on vim start
+"autocmd VimEnter * NERDTree | wincmd w "autoopen on vim start
 autocmd BufWinEnter * NERDTreeMirror "auto mirror on any tab
 
 " vimwiki
