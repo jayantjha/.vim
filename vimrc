@@ -4,9 +4,10 @@ set belloff=all
 set pastetoggle=<F2>
 set number relativenumber
 
-" Fix new split position
+" Fix splits
 set splitbelow
 set splitright
+au VimResized * :wincmd = "Resize splits equally on resize
 
 let mapleader = ";"
 " Set leader timout
@@ -202,6 +203,8 @@ let NERDTreeQuitOnOpen=0 "1 would mean close
 let g:NERDTreeIgnore = ['^node_modules$']
 autocmd VimEnter * if !argc() | NERDTree | wincmd w | endif "autoopen on vim start
 autocmd BufWinEnter * if !argc() | NERDTreeMirror | endif "auto mirror on any tab
+" close nerdtree if it is the only buffer left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " vimwiki
 let wiki_1 = {}
