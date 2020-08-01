@@ -240,6 +240,3 @@ let g:mucomplete#enable_auto_at_startup = 1
 " ctrlP
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|.git'
 
-
-
-
