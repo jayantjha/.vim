@@ -149,10 +149,10 @@ set nowrap "Don't wrap lines
 
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
-if has("win16") || has("win32")
-    set wildignore+=.git\*,.hg\*,.svn\*
+if has("win16") || has("win32") || has("win64")
+    set wildignore+=.git\*,.hg\*,.svn\*,**\node_modules\*
 else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store,**/node_modules/*
 endif
 
 set number
@@ -185,6 +185,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug '907th/vim-auto-save'
 Plug 'junegunn/vim-easy-align'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mileszs/ack.vim'
 
 call plug#end()
 
