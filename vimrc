@@ -206,6 +206,8 @@ autocmd VimEnter * if !argc() | NERDTree | wincmd w | endif "autoopen on vim sta
 autocmd BufWinEnter * if !argc() | NERDTreeMirror | endif "auto mirror on any tab
 " close nerdtree if it is the only buffer left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeMinimalUI = 1
+let NERDTreeAutoDeleteBuffer = 1
 
 " vimwiki
 let wiki_1 = {}
@@ -230,9 +232,12 @@ augroup ft_markdown
     au FileType markdown let b:auto_save = 1
 augroup END
 
+" coc.nvim
 " coc-extensions
 let g:coc_global_extensions = ['coc-clangd', 'coc-cmake', 'coc-css', 'coc-emmet', 'coc-html', 'coc-json', 'coc-omnisharp', 'coc-python', 'coc-sql', 'coc-tsserver', 'coc-xml']
 
+" Formatting selected code.
+nmap <leader>f  <Plug>(coc-format)
 
 " vim-mucomplete
 let g:mucomplete#enable_auto_at_startup = 1
