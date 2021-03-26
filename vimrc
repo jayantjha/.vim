@@ -117,6 +117,16 @@ nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 nnoremap <C-H> <C-W>h
 
+" In insert or command mode, move normally by using Ctrl
+"inoremap <C-h> <Left>
+"inoremap <C-j> <Down>
+"inoremap <C-k> <Up>
+"inoremap <C-l> <Right>
+"cnoremap <C-h> <Left>
+"cnoremap <C-j> <Down>
+"cnoremap <C-k> <Up>
+"cnoremap <C-l> <Right>
+
 " resize windows
 nnoremap <C-.> <C-W>+
 nnoremap <C-,> <C-W>-
@@ -162,6 +172,9 @@ set nocompatible
 filetype off
 syntax on
 
+" better backspace
+" set backspace=indent,eol,start
+
 source ~/.vim/plug.vim
 call plug#begin('~/.vim/plugged')
 
@@ -186,8 +199,17 @@ Plug '907th/vim-auto-save'
 Plug 'junegunn/vim-easy-align'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mileszs/ack.vim'
+Plug 'puremourning/vimspector'
+Plug 'wesQ3/vim-windowswap'
 
 call plug#end()
+
+if !empty($CONEMUBUILD)
+    set term=pcansi
+    set t_Co=256
+    let &t_AB="\e[48;5;%dm"
+    let &t_AF="\e[38;5;%dm"
+endif   
 
 " looks
 " give better look when both themes are applied
@@ -234,7 +256,8 @@ augroup END
 
 " coc.nvim
 " coc-extensions
-let g:coc_global_extensions = ['coc-clangd', 'coc-cmake', 'coc-css', 'coc-emmet', 'coc-html', 'coc-json', 'coc-omnisharp', 'coc-python', 'coc-sql', 'coc-tsserver', 'coc-xml']
+let g:coc_global_extensions = ['coc-clangd', 'coc-vetur',  'coc-angular', 'coc-eslint', 
+      \'coc-cmake', 'coc-css', 'coc-emmet', 'coc-html', 'coc-json', 'coc-omnisharp', 'coc-python', 'coc-sql', 'coc-tsserver', 'coc-xml']
 
 " Formatting selected code.
 nmap <leader>f  <Plug>(coc-format)
@@ -245,3 +268,11 @@ let g:mucomplete#enable_auto_at_startup = 1
 " ctrlP
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|.git'
 
+" ale
+
+" vimspector
+let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+let g:vimspector_install_gadgets = ['netcoredbg', 'vscode-cpptools', 
+                                  \ 'vscode-go', 'vscode-java-debug', 
+                                  \ 'vscode-mono-debug', 'vscode-node-debug2', 
+                                  \ 'vscode-python',  'debugpy', 'debugger-for-chrome']
