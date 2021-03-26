@@ -254,11 +254,6 @@ augroup ft_markdown
     au FileType markdown let b:auto_save = 1
 augroup END
 
-" coc.nvim
-" coc-extensions
-let g:coc_global_extensions = ['coc-clangd', 'coc-vetur',  'coc-angular', 'coc-eslint', 
-      \'coc-cmake', 'coc-css', 'coc-emmet', 'coc-html', 'coc-json', 'coc-omnisharp', 'coc-python', 'coc-sql', 'coc-tsserver', 'coc-xml']
-
 " Formatting selected code.
 nmap <leader>f  <Plug>(coc-format)
 
@@ -276,3 +271,6 @@ let g:vimspector_install_gadgets = ['netcoredbg', 'vscode-cpptools',
                                   \ 'vscode-go', 'vscode-java-debug', 
                                   \ 'vscode-mono-debug', 'vscode-node-debug2', 
                                   \ 'vscode-python',  'debugpy', 'debugger-for-chrome']
+
+source ~/.vim/cocrc.vim
+
