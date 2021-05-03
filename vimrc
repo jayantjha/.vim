@@ -134,8 +134,8 @@ nnoremap <C->> <C-W>>
 nnoremap <C-<> <C-W><
 
 " move around tabs
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
+nnoremap <A-h> :tabprevious<CR>
+nnoremap <A-l> :tabnext<CR>
 
 " highlight matching [{()}]
 set showmatch
@@ -224,7 +224,7 @@ map <C-n> :NERDTreeToggle<CR>
 map <Leader>n :NERDTreeFocus<CR>
 let NERDTreeQuitOnOpen=0 "1 would mean close
 let g:NERDTreeIgnore = ['^node_modules$']
-autocmd VimEnter * if !argc() | NERDTree | wincmd w | endif "autoopen on vim start
+" autocmd VimEnter * if !argc() | NERDTree | wincmd w | endif "autoopen on vim start
 autocmd BufWinEnter * if !argc() | NERDTreeMirror | endif "auto mirror on any tab
 " close nerdtree if it is the only buffer left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
