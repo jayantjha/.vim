@@ -1,1 +1,1 @@
-# MY VIMRC file
+# My .vimrc file
