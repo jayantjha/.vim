@@ -199,8 +199,6 @@ Plug '907th/vim-auto-save'
 Plug 'junegunn/vim-easy-align'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mileszs/ack.vim'
-Plug 'puremourning/vimspector'
-Plug 'wesQ3/vim-windowswap'
 
 call plug#end()
 
@@ -254,6 +252,10 @@ augroup ft_markdown
     au FileType markdown let b:auto_save = 1
 augroup END
 
+" coc.nvim
+" coc-extensions
+let g:coc_global_extensions = ['coc-clangd', 'coc-cmake', 'coc-css', 'coc-emmet', 'coc-html', 'coc-json', 'coc-omnisharp', 'coc-python', 'coc-sql', 'coc-tsserver', 'coc-xml']
+
 " Formatting selected code.
 nmap <leader>f  <Plug>(coc-format)
 
@@ -263,14 +265,5 @@ let g:mucomplete#enable_auto_at_startup = 1
 " ctrlP
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|.git'
 
-" ale
 
-" vimspector
-let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
-let g:vimspector_install_gadgets = ['netcoredbg', 'vscode-cpptools', 
-                                  \ 'vscode-go', 'vscode-java-debug', 
-                                  \ 'vscode-mono-debug', 'vscode-node-debug2', 
-                                  \ 'vscode-python',  'debugpy', 'debugger-for-chrome']
-
-source ~/.vim/cocrc.vim
 
