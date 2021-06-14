@@ -175,6 +175,10 @@ syntax on
 " better backspace
 " set backspace=indent,eol,start
 
+" Plugin global variables config before plugin loaded
+let g:ale_disable_lsp = 1
+let g:coc_config_home = '~\.vim'
+
 source ~/.vim/plug.vim
 call plug#begin('~/.vim/plugged')
 
@@ -199,6 +203,8 @@ Plug '907th/vim-auto-save'
 Plug 'junegunn/vim-easy-align'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mileszs/ack.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -207,6 +213,11 @@ if !empty($CONEMUBUILD)
     set t_Co=256
     let &t_AB="\e[48;5;%dm"
     let &t_AF="\e[38;5;%dm"
+    let &t_kb="\xcex" 
+    let &t_ku="\xceH"
+    let &t_kd="\xceP"
+    let &t_kl="\xceK"
+    let &t_kr="\xceM"
 endif   
 
 " looks
@@ -247,14 +258,15 @@ augroup end
 
 " vim-auto-save
 let g:auto_save = 0
-augroup ft_markdown
-    au!
-    au FileType markdown let b:auto_save = 1
-augroup END
+"augroup ft_markdown
+    "au!
+    "au FileType markdown let b:auto_save = 1
+"augroup END
 
 " coc.nvim
 " coc-extensions
-let g:coc_global_extensions = ['coc-clangd', 'coc-cmake', 'coc-css', 'coc-emmet', 'coc-html', 'coc-json', 'coc-omnisharp', 'coc-python', 'coc-sql', 'coc-tsserver', 'coc-xml']
+"let g:coc_global_extensions = ['coc-clangd', 'coc-cmake', 'coc-css', 'coc-emmet', 'coc-html', 'coc-json', 'coc-omnisharp', 'coc-python', 'coc-sql', 'coc-tsserver', 'coc-xml']
+source ~/.vim/cocrc.vim
 
 " Formatting selected code.
 nmap <leader>f  <Plug>(coc-format)
@@ -265,5 +277,12 @@ let g:mucomplete#enable_auto_at_startup = 1
 " ctrlP
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|.git'
 
+" ale
+let g:ale_set_highlights = 0
+let g:ale_sign_error = '~'
+let g:ale_sign_warning = '-'
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+let g:ale_enabled = 1
 
 
