@@ -3,6 +3,8 @@ set modelines=1
 set belloff=all
 set pastetoggle=<F2>
 set number relativenumber
+"sets number column as signcolumn
+"set signcolumn=number
 
 " Fix splits
 set splitbelow
@@ -284,5 +286,15 @@ let g:ale_sign_warning = '-'
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 let g:ale_enabled = 1
+"let g:ale_sign_column_always = 1
+" Do not lint in the following cases
+let g:ale_pattern_options = {
+\ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
+\ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
+\ '\.[jt]s': {'ale_linters': []}
+\}
+
+
+
 
 
