@@ -207,6 +207,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -294,7 +295,6 @@ let g:ale_pattern_options = {
 \ '\.[jt]s': {'ale_linters': []}
 \}
 
-
-
-
+" Rust
+let g:rustfmt_autosave = 1
 
