@@ -5,6 +5,11 @@ set pastetoggle=<F2>
 set number relativenumber
 "sets number column as signcolumn
 "set signcolumn=number
+"set signcolumn=yes
+autocmd FileType 
+\javascript,jsx,vue,typescript,json,
+\cs,java,python,sql,cpp,c,clojure setlocal signcolumn=yes
+
 
 " Fix splits
 set splitbelow
@@ -208,6 +213,7 @@ Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'rust-lang/rust.vim'
+"Plug 'will133/vim-dirdiff'
 
 call plug#end()
 
