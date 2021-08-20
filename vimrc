@@ -165,11 +165,11 @@ set nowrap "Don't wrap lines
 "set wrap "Wrap lines
 
 " Ignore compiled files
-set wildignore=*.o,*~,*.pyc
+set wildignore=*.o,*~,*.pyc,*.png,*.jpg,*.ico,*.jpeg,*.ttf,*.eot,*.dll,*.exe,*.bin,*.pdf
 if has("win16") || has("win32") || has("win64")
-    set wildignore+=.git\*,.hg\*,.svn\*,**\node_modules\*
+    set wildignore+=.git\\*,.hg\\*,.svn\\*,**\\node_modules\\*,**\\bin\\*,**\\dist\\*,**\\target\\*
 else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store,**/node_modules/*
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store,**/node_modules/*,**/bin/*,**/dist/*,**/target/*
 endif
 
 set number
@@ -178,6 +178,21 @@ set cursorline
 set nocompatible
 filetype off
 syntax on
+
+" Auto open quickfix after search
+"augroup quickfix
+    "autocmd!
+    "autocmd QuickFixCmdPost [^l]* cwindow
+    "autocmd QuickFixCmdPost l* lwindow
+"augroup END
+
+nnoremap co :noautocmd copen<CR>
+nnoremap cc :cclose<CR>
+nnoremap cn :cnext<CR>
+nnoremap cp :cprevious<CR>
+nnoremap cf :cfirst<CR>
+nnoremap cl :clast<CR>
+
 
 " better backspace
 " set backspace=indent,eol,start
