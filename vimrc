@@ -228,7 +228,9 @@ Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'rust-lang/rust.vim'
+"Plug 'ryanoasis/vim-devicons'
 "Plug 'will133/vim-dirdiff'
+
 
 call plug#end()
 
@@ -260,9 +262,10 @@ let g:NERDTreeIgnore = ['^node_modules$']
 " autocmd VimEnter * if !argc() | NERDTree | wincmd w | endif "autoopen on vim start
 autocmd BufWinEnter * if !argc() | NERDTreeMirror | endif "auto mirror on any tab
 " close nerdtree if it is the only buffer left
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
+"let g:NERDTreeWinSize = 40
 
 " vimwiki
 let wiki_1 = {}
