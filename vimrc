@@ -296,7 +296,7 @@ let g:auto_save = 0
 source ~/.vim/cocrc.vim
 
 " Formatting selected code.
-nmap <leader>f  <Plug>(coc-format)
+nmap <Leader>f  <Plug>(coc-format)
 
 " vim-mucomplete
 let g:mucomplete#enable_auto_at_startup = 1
